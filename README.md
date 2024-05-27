@@ -5,13 +5,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker-compose up -d --build
+docker-compose exec db psql -U user -d postgres -c "CREATE DATABASE todo_list"
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+```
+
+```bash
+npm uninstall bcrypt
+npm install bcryptjs
+npm install bcrypt
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
